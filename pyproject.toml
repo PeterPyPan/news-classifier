@@ -1,0 +1,95 @@
+[project.optional-dependencies]
+dev = ['pytest', 'pytest-cov', 'pre-commit']
+
+##  RUFF  ##
+[tool.ruff]
+line-length = 88
+
+# extend default excluded files/folders/patterns
+extend-exclude = ['.*']
+
+[tool.ruff.lint]
+# rules to be applied
+# see https://docs.astral.sh/ruff/rules
+select = [
+    # flake8-builtins
+    'A',
+    # flake8-bugbear
+    'B',
+    # flake8-quotes
+    'Q0',
+    # flake8-comprehensions
+    'C4',
+    # mccabe
+    'C90',
+    # pydocstyle
+    'D',
+    # pycodestyle
+    'E',
+    # Pyflakes
+    'F',
+    # isort
+    'I',
+    # pep8 naming
+    'N',
+    # pycodestyle
+    'W',
+    # pygrep hooks
+    'PGH',
+]
+# violations to be be ignored
+ignore = [
+    # ignore with `raise ... from err` or `raise ... from None`
+    'B904',
+    # ignore missing docstrings (D100-D107)
+    'D1',
+    # ignore unnecessary assignment to variable before `return` statement
+    # this helps to make the code more readable
+    'RET504',
+    # ignore use ternary operator instead of if else can make code more readable
+    'SIM108',
+    # ignore todos author and issue link
+    'TD002',
+    'TD003',
+    # ignore use `X | Y` for type annotations
+    'UP007',
+    # ignore use `X | Y` in `isinstance` call instead of `(X, Y)`
+    'UP038',
+    # ignore use explicit conversion flag
+    'RUF010',
+]
+
+# these violations will be excluded from the ruff autofixing
+unfixable = [
+    # exclude some flake8 fixes to ensure the developer sees mistakes reported instead
+    # of fixing them magically and not learning.
+    'B',
+    'ISC',
+    'PIE',
+    'UP',
+    'RUF',
+    # exclude fixing unused imports
+    'F401',
+]
+
+per-file-ignores = {}
+
+[tool.ruff.lint.isort]
+force-wrap-aliases = true
+known-local-folder = []
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = 'double'
+inline-quotes = 'single'
+multiline-quotes = 'double'
+
+[tool.ruff.lint.mccabe]
+max-complexity = 13
+
+[tool.ruff.lint.pydocstyle]
+convention = 'google'
+
+[tool.ruff.format]
+quote-style = 'single'
+indent-style = 'space'
+docstring-code-format = false
