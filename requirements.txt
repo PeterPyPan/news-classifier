@@ -1,0 +1,7 @@
+transformers==4.*
+tensorboard
+numpy
+evaluate
+datasets==3.*
+torch==2.5.0+cu118
+--index-url https://download.pytorch.org/whl/cu118
