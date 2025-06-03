@@ -1,0 +1,15 @@
+transformers[torch]==4.*
+tqdm
+numpy
+scikit-learn
+evaluate
+datasets==3.*
+torch==2.5.0+cu118
+--extra-index-url https://download.pytorch.org/whl/cu118
+
+onnx==1.18.*
+onnxruntime-gpu==1.22.*
+
+# dev requirements
+tensorboard
+pre-commit==3.3.*
